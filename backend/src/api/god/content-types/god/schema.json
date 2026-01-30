@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gods",
+  "info": {
+    "singularName": "god",
+    "pluralName": "gods",
+    "displayName": "God"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true
+    },
+    "domain": {
+      "type": "enumeration",
+      "enum": [
+        "guerra",
+        "sabiduría",
+        "mar",
+        "inframundo",
+        "amor"
+      ]
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "avatar": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "myths": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::myth.myth",
+      "mappedBy": "god"
+    }
+  }
+}
